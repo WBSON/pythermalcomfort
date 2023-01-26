@@ -1,8 +1,7 @@
-from numba import jit, vectorize, float64
+#from numba import jit, vectorize, float64
 import math
 
-
-@jit(nopython=True)
+#@jit(nopython=True)
 def two_nodes_optimized(
     tdb,
     tr,
@@ -332,7 +331,7 @@ def two_nodes_optimized(
         t_sens,
     )
 
-
+'''
 @vectorize(
     [
         float64(
@@ -349,6 +348,7 @@ def two_nodes_optimized(
         )
     ],
 )
+'''
 def two_nodes_optimized_return_set(
     tdb,
     tr,
@@ -375,7 +375,7 @@ def two_nodes_optimized_return_set(
         True,
     )[0]
 
-
+'''
 @vectorize(
     [
         float64(
@@ -389,6 +389,7 @@ def two_nodes_optimized_return_set(
         )
     ],
 )
+'''
 def pmv_ppd_optimized(tdb, tr, vr, rh, met, clo, wme):
 
     pa = rh * 10 * math.exp(16.6536 - 4030.183 / (tdb + 235))
@@ -455,7 +456,7 @@ def pmv_ppd_optimized(tdb, tr, vr, rh, met, clo, wme):
 
     return _pmv
 
-
+'''
 @vectorize(
     [
         float64(
@@ -466,6 +467,7 @@ def pmv_ppd_optimized(tdb, tr, vr, rh, met, clo, wme):
         )
     ],
 )
+'''
 def utci_optimized(tdb, v, delta_t_tr, pa):
     return (
         tdb
@@ -826,7 +828,7 @@ def utci_optimized(tdb, v, delta_t_tr, pa):
     )
 
 
-@jit(nopython=True)
+#@jit(nopython=True)
 def phs_optimized(*args):
     (
         tdb,
